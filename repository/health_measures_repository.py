@@ -12,9 +12,9 @@ import pymysql.cursors
 def get_daily_averages_for_last_n_months(n_months: int, device_record_id: str) -> list:
 
     conn = pymysql.connect(
-        host='localhost',
-        user='root',
-        password='root',
+        host='pettracker.mysql.database.azure.com',
+        user='pettracker',
+        password='StiviDark69',
         database='pet_tracker',
         cursorclass=pymysql.cursors.DictCursor,
         ssl={"tls":True}
