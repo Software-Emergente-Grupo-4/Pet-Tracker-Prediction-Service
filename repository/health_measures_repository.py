@@ -1,23 +1,18 @@
 import pymysql.cursors
+from dotenv import load_dotenv
+import os
 
-# conn = pymysql.connect(
-#     host='pettracker.mysql.database.azure.com',
-#     user='pettracker',
-#     password='StiviDark69',
-#     database='pet_tracker',
-#     cursorclass=pymysql.cursors.DictCursor,
-#     ssl={"tls":True}
-# )
+load_dotenv()
 
 def get_daily_averages_for_last_n_months(n_months: int, device_record_id: str) -> list:
 
     conn = pymysql.connect(
-        host='pettracker.mysql.database.azure.com',
-        user='pettracker',
-        password='StiviDark69',
-        database='pet_tracker',
+        host=os.getenv("MYSQL_HOST"),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        database=os.getenv("MYSQL_DATABASE"),
         cursorclass=pymysql.cursors.DictCursor,
-        ssl={"tls":True}
+        ssl={"tls": True}
     )
 
     try:
