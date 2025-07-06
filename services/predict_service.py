@@ -23,7 +23,7 @@ def __caculate_days_to_predict(df: pd.DataFrame) -> tuple:
 
 def make_future_health_measures(n_months: int, device_record_id: str) -> list:
     results = health_measures_repository.get_daily_averages_for_last_n_months(n_months, device_record_id)
-    if len(results) == 0: return []
+    if len(results) < 30: return []
     df_bpm = __from_list_to_df(results, 'avg_bpm')
     df_spo2 = __from_list_to_df(results, 'avg_spo2')
 

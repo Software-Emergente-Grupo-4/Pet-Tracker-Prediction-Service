@@ -8,13 +8,13 @@ conn = pymysql.connect(
     host='localhost',
     user='root',
     password='root',
-    database='pet_tracker',
+    database='pet_tracker_fake',
     cursorclass=pymysql.cursors.DictCursor,
     ssl={"tls":True}
 )
 
 fake = Faker()
-device_record_id = "9a344bf6-2390-4c34-92bb-c170d39b77a4"
+device_record_id = "9a344bf6-2390-4c34-92bb-c170d39b76a4"
 hoy = datetime.today()
 
 # Generar datos para los últimos 365 días

@@ -32,11 +32,6 @@ def prediction_model(req: func.HttpRequest) -> func.HttpResponse:
             status_code=200
         )
     
-    except ValueError:
-        return func.HttpResponse(
-            "Body must be a valid JSON",
-            status_code=400
-        )
     except Exception as e:
         return func.HttpResponse(
             f"Unexpected Error: {str(e)}",
